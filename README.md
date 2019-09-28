@@ -11,7 +11,7 @@ go get github.com/zmap/go-iptree/iptree
 cd check_rkn
 CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o check_rkn .
 ```
-or for cross-compile for ARM
+or cross-compile for ARM
 ```
 CGO_ENABLED=0 GOOS=linux GOARCH=ARM go build -a -installsuffix cgo -o check_rkn_arm .
 ```
