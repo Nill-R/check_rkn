@@ -78,6 +78,10 @@ func downloadDump(url, path string) error {
 }
 
 func main() {
+	if len(os.Args) != 3 {
+                fmt.Printf("Usage: listen IP:PORT and directory for dump db%v\n", 2)
+        os.Exit(1)
+        }
 	listen := os.Args[1]
 	dumpDir := os.Args[2]
 	lock := sync.Mutex{}
