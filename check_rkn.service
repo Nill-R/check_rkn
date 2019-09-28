@@ -1,0 +1,13 @@
+[Unit]
+Description=Check RKN Service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/srv/db/csv
+ExecStart=/usr/local/bin/check_rkn 127.0.0.1:9999 ./
+Restart=on-failure
+User=nobody
+
+[Install]
+WantedBy=multi-user.target
