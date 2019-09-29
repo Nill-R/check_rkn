@@ -1,6 +1,6 @@
 [Link](https://github.com/Nill-R/check_rkn/blob/master/README.old.md "Link") to original README
 
-###Instalation guide
+### Instalation guide
 ```
 git clone https://github.com/Nill-R/check_rkn.git
 go get github.com/zmap/go-iptree/iptree
