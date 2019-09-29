@@ -8,13 +8,12 @@ sudo apt install git golang-go jq
 git clone https://github.com/Nill-R/check_rkn.git
 go get github.com/zmap/go-iptree/iptree
 cd check_rkn
-ARCH=`uname -p`
-CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o check_rkn_$ARCH .
-sudo cp check_rkn_$ARCH /usr/local/bin/
+CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o check_rkn .
+sudo cp check_rkn /usr/local/bin/
 ```
 For manually check
 ```
-check_rkn_$ARCH 127.0.0.1:9999 ./
+check_rkn 127.0.0.1:9999 ./
 ```
 In other shell
 ```
@@ -27,8 +26,7 @@ And look something like
 It is work!
 Ok. Install service
 ```
-sudo mkdir -p /srv/db/csv
-sudo chown nobody /srv/db/csv
+sudo mkdir -p /srv/db/csv; sudo chown nobody /srv/db/csv; sudo mkdir -p /var/log/check_rkn; sudo chown nobody /var/log/check_rkn
 sudo cp check_rkn.service /etc/systemd/system/
 systemctl enable check_rkn
 systemctl start check_rkn
