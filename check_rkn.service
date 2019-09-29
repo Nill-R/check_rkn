@@ -4,8 +4,9 @@ After=network.target
 
 [Service]
 Type=simple
+ARCH=`uname -p`
 WorkingDirectory=/srv/db/csv
-ExecStart=/usr/local/bin/check_rkn 127.0.0.1:9999 ./
+ExecStart=/usr/local/bin/check_rkn_$ARCH 127.0.0.1:9999 ./
 Restart=on-failure
 User=nobody
 
