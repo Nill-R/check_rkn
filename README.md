@@ -1,10 +1,4 @@
-```
-docker run -it —rm -p 8020:8020 shurshun/check_rkn
-curl -X POST -d '["34.246.38.204", "47.91.106.69"]' http://localhost:8020/check_ips
-{"34.246.38.204":true,"47.91.106.69":true}
-```
-Alternative build and run as service with systemd-unit
-
+[Link](https://github.com/Nill-R/check_rkn/blob/master/README.old.md "Link") to original README
 ```
 git clone https://github.com/Nill-R/check_rkn.git
 go get github.com/zmap/go-iptree/iptree
