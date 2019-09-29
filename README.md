@@ -25,7 +25,7 @@ And look something like
 {"104.31.92.48":true,"104.31.93.48":true}
 ```
 It is work!
-Ok. Install services
+Ok. Install service
 ```
 sudo mkdir -p /srv/db/csv
 sudo chown nobody /srv/db/csv
