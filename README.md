@@ -26,7 +26,7 @@ And look something like
 It is work!
 Ok. Install service
 ```
-sudo mkdir -p /srv/db/csv; sudo chown nobody /srv/db/csv; sudo mkdir -p /var/log/check_rkn; sudo chown nobody /var/log/check_rkn
+sudo mkdir -p /srv/db/csv; sudo chown nobody /srv/db/csv; sudo mkdir -p /var/log/check_rkn/old; sudo chown -R nobody /var/log/check_rkn
 sudo cp check_rkn.service /etc/systemd/system/
 systemctl enable check_rkn
 systemctl start check_rkn
