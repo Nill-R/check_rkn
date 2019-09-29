@@ -17,11 +17,11 @@ RUN \
 
 COPY --from=BUILD /go/src/app/check_rkn /
 
-ENV LISTEN_ADDR=0.0.0.0:8020
+ENV LISTEN_ADDR=0.0.0.0:9999
 
 HEALTHCHECK --interval=30s --timeout=2s \
   CMD curl -fs http://$LISTEN_ADDR/ping
 
 ENTRYPOINT ["/check_rkn"]
-CMD ["0.0.0.0:8020", "/db"]
-VOLUME ["/db"]
+CMD ["0.0.0.0:9999", "/srv/db/check_rkn"]
+VOLUME ["/srv/db/check_rkn"]
