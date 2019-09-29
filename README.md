@@ -1,14 +1,44 @@
 [Link](https://github.com/Nill-R/check_rkn/blob/master/README.old.md "Link") to original README
 
-### Instalation guide
+# Instalation guide 
+
+Debian-based distros(Debian, Ubuntu, Armbian etc…)
 ```
+sudo apt install git golang-go jq
 git clone https://github.com/Nill-R/check_rkn.git
 go get github.com/zmap/go-iptree/iptree
 cd check_rkn
-CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o check_rkn .
+ARCH=`uname -p`
+CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o check_rkn_$ARCH .
+sudo cp check_rkn_$ARCH /usr/local/bin/
 ```
-or cross-compile for ARM
+For manually check
 ```
-CGO_ENABLED=0 GOOS=linux GOARCH=ARM go build -a -installsuffix cgo -o check_rkn_arm .
+check_rkn_$ARCH 127.0.0.1:9999 ./
 ```
-Edit systemd-unit from repo, enable and start service
+In other shell
+```
+curl -s -X POST -d '["104.31.93.48", "104.31.92.48"]' http://localhost:9999/check_ips
+```
+And look something like
+```
+{"104.31.92.48":true,"104.31.93.48":true}
+```
+It is work!
+Ok. Install services
+```
+sudo mkdir -p /srv/db/csv
+sudo chown nobody /srv/db/csv
+sudo cp check_rkn.service /etc/systemd/system/
+systemctl enable check_rkn
+systemctl start check_rkn
+```
+Waiting for db downloaded and check
+```
+curl -s -X POST -d '["104.31.93.48", "104.31.92.48"]' http://localhost:9999/check_ips
+```
+Look 
+```
+{"104.31.92.48":true,"104.31.93.48":true}
+```
+Well done! check_rkn work as service!
