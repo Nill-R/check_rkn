@@ -19,7 +19,7 @@ const (
 	dumpDownloadTimeout   = 30 * time.Second
 	dumpUrl               = "https://github.com/zapret-info/z-i/raw/master/dump.csv"
 	downloadRetryInterval = time.Second * 30
-	dumpUpdateInterval    = time.Minute * 15
+	dumpUpdateInterval    = time.Minute * 240
 )
 
 func loadDump(path string) (*iptree.IPTree, error) {
