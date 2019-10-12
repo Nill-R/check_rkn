@@ -9,7 +9,7 @@ ExecStart=/usr/local/bin/check_rkn 127.0.0.1:9999 ./
 Restart=on-failure
 User=nobody
 StandardOutput=file:/var/log/check_rkn/check_rkn.log
-StandardError=file:/var/log/mtprotoproxy/check_rkn.error.log
+StandardError=file:/var/log/check_rkn/check_rkn.error.log
 SyslogIdentifier=check_rkn
 
 [Install]
